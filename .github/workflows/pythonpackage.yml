@@ -22,5 +22,5 @@ jobs:
         python -m pip install --upgrade pip
         pip install tox git+https://github.com/ymyzk/tox-gh-actions.git
     - name: Test with tox
-      run: tox
+      run: tox -vv
 
