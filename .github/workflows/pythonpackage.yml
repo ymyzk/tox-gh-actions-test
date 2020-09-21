@@ -20,9 +20,16 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install tox git+https://github.com/ymyzk/tox-gh-actions.git@env-support
+        pip install tox git+https://github.com/ymyzk/tox-gh-actions.git@grouping
+    - name: Test with tox
+      run: tox
+      # run: tox -vv -e py27,py36,py37,flake8
     - name: Test with tox
       run: tox -vv
       env:
         PLATFORM: ${{ matrix.platform }}
       # run: tox -vv -e py27,py36,py37,flake8
+    - name: Test with tox
+      run: tox -vv -p
+      env:
+        PLATFORM: ${{ matrix.platform }}
