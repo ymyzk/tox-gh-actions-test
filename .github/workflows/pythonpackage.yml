@@ -3,6 +3,11 @@ name: Python package
 on:
   push:
   workflow_dispatch:
+    inputs:
+      branch:
+        description: "tox-gh-action's branch"
+        required: true
+        default: master
 
 jobs:
   build:
@@ -22,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install tox git+https://github.com/ymyzk/tox-gh-actions.git@env-support
+        pip install tox git+https://github.com/ymyzk/tox-gh-actions.git@${{ github.event.inputs.branch || 'master' }}
     - name: Test with tox
       run: tox -vv
       env:
