@@ -1,0 +1,23 @@
+{
+    "problemMatcher": [
+        {
+            "owner": "tox-gh-actions",
+            "pattern": [
+                {
+                    "regexp": "^ERROR: (InvocationError for command .+)$",
+                    "message": 1
+                }
+            ]
+        },
+        {
+            "owner": "tox-gh-actions-deprecation-warning",
+            "pattern": [
+                {
+                    "regexp": "^DEPRECATION (WARNING): (.+)$",
+                    "severity": 1,
+                    "message": 2
+                }
+            ]
+        }
+    ]
+}
